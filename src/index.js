@@ -1,4 +1,6 @@
-window.checkIfDisabled = function (organizationId) {
+import { addGtmToHead, addGtmToBody } from './gtm'
+
+window.checkIfDisabled = function (organizationId, addTracking = true) {
   // Define the URL of your JSON file
   const requestUrl = `https://fluxconsole.com/api/org/${organizationId}`
 
@@ -21,5 +23,11 @@ window.checkIfDisabled = function (organizationId) {
     })
     .catch((error) => {
       console.error('There was a problem with the fetch operation:', error.message)
+    })
+
+  addTracking &&
+    document.addEventListener('DOMContentLoaded', function () {
+      addGtmToHead()
+      addGtmToBody()
     })
 }
