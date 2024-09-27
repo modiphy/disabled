@@ -25,9 +25,9 @@ window.checkIfDisabled = function (organizationId, addTracking = true) {
       console.error('There was a problem with the fetch operation:', error.message)
     })
 
-  addTracking &&
-    document.addEventListener('DOMContentLoaded', function () {
-      addGtmToHead()
-      addGtmToBody()
-    })
+  // addTracking &&
+  //   document.addEventListener('DOMContentLoaded', function () {
+  //     addGtmToHead()
+  //     addGtmToBody()
+  //   })
 }
